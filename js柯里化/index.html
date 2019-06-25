@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8">  
+	</head>
+	<body> 
+    	<div>
+            定义一个函数add求和，参数个数不定，满足一下两种方式都可以调用返回和,
+            add(1,2,3,4)或add(1)(2)(3)(4)
+        </div>  	 
+    </body> 
+    <script>
+         function add () {
+            var args = Array.prototype.slice.apply(arguments);
+
+            var _add = function() {
+                args.push(...arguments);
+                return _add;
+            }
+
+            _add.toString = function() {
+               return args.reduce(function(a, b) {
+                    return a + b;
+                })
+            }
+
+            return _add;
+         }
+
+         var sum1 = add(1,2,3,4,5,6);
+         var sum2 = add(1)(2)(3)(4)(5)(6);
+
+         console.log(sum1, sum2)
+    </script>
+</html>

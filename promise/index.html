@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8"> 
+           <script type="text/javascript" src="./promise.js"></script>
+	</head>
+	<body> 
+    	  	 
+    </body> 
+    <script>
+        new _Promise(function(resolve, reject) {
+            setTimeout(function() {
+                console.log('running in promise...')
+                reject('1111')
+            }, 1000)
+        }).then(function(data) {
+            console.log('success' + data)
+        }, function(err) {
+            console.log('error' + err)
+        }) 
+    </script>
+</html>
