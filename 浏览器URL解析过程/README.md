@@ -36,5 +36,12 @@
 - 4.浏览器跟踪重定向地址另发一个http请求
 - 5.服务器处理请求
     - 5.1 服务器接收到获取请求，然后处理并返回一个响应
-- 6.服务器返回一个http响应    
+- 6.服务器返回一个http响应结果    
 - 7.浏览器解析html页面
+    - 7.1 构建dom树 ->构建render树 -> 布局render树 ->绘制render树 
+    - 7.2 将HTML构建成一个DOM树（DOM = Document Object Model 文档对象模型），DOM 树的构建过程是一个深度遍历过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点 
+    - 7.3 将CSS解析成CSS去构造CSSOM树( CSSOM = CSS Object Model CSS对象模型)
+    - 7.4 根据DOM树和CSSOM来构造 Rendering Tree（渲染树）。
+    - 7.5 浏览器根据Render Tree定义以及他们的从属关系
+    - 7.6 计算每个节点位于屏幕中的位置
+    - 7.7 遍历render树绘制每个节点
