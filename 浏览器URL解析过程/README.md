@@ -6,7 +6,7 @@
     - 1.2 为什么要用DNS解析
         - 1.2.1 网络通讯大部分是基于TCP/IP的，而TCP/IP是基于IP地址的，所以计算机在网络上进行通讯时只能识别如“202.96.134.133”之类的IP地址，而不能认识域名.
     - 1.3 DNS解析过程
-        - 1.3.1    
+        - 1.3.1   ![avatar](https://github.com/ai4code/study/blob/master/%E6%B5%8F%E8%A7%88%E5%99%A8URL%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B/image/dns.jpg) 
 - 2.建立TCP连接
 
 - 3.浏览器向Web服务端发送HTTP请求
