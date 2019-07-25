@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8">
+           <title>实现Object.create、instanceOf</title>  
+	</head>
+	<body>
+
+    </body>
+    <script>
+         
+         //实现Object.create
+         Object.prototype.MyCreate = function(obj) {
+             function F() {};
+             F.prototype = obj;
+             return new F();
+         }
+
+         
+        function C(){} 
+        function D(){}  
+        var o = new C();
+
+        console.log(instanceOf(o, C))
+ 
+
+         //实现instanceOf
+         function instanceOf(left, right) {
+            left = left.__proto__; //左边原型链
+            right = right.prototype; //右边原型
+            while(true) {
+                if (!left) return false;
+                if (left === right) {
+                    return true;
+                }
+                left = left.__proto__;
+            }
+         }
+    </script>
+</html>    
