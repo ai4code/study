@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8">
+           <title>手动编写实现call,apply, bind函数</title> 
+           <script src="./apply.js"></script>
+           <script src="./call.js"></script>
+           <script src="./bind.js"></script>
+	</head>
+	<body>
+
+    </body>
+    <script>
+        //call
+        function aaa(a, b) {  
+             console.log('this',  this.age, this.text)
+        } 
+        var bbb  = {
+            age: '12',
+            text: 'ss'
+        } 
+        aaa.MyCall(bbb, 1, 2);
+
+        //apply
+        function ApplyA() {
+            console.log(this,'>>>')
+        }
+
+        var applyB = [{a:1}]
+
+        ApplyA.MyApply(applyB)
+        //bind
+        function a(cc) {
+            console.log(this,cc,'>>>')
+        }
+
+        var b = {
+            age: 12
+        }
+
+        a.MyBind(b, 11)()
+    </script>
+</html>    

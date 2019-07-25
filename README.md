@@ -5,3 +5,4 @@
 ## 2.手动编写Promise
 ## 3.防抖节流的实现
 ## 4.Javascript柯里化
+## 5.手动编写call,apply,bind函数 
