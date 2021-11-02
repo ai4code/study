@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8"> 
+         
+	</head>
+	<body> 
+        <h1>发布订阅/观察者模式
+        </h1>
+    </body> 
+    <script>
+            class eventAi4code {
+                events = {};
+
+                on(type, handler) {
+                    this.events[type] = (this.events[type] || []).concat(handler);
+                }
+
+                fire(type, data) {
+                    this.events[type] && this.events[type].map(fn => fn(data))
+                }
+
+                remove(type, handler) {
+                    if (this.events[type]) {
+                        if (!handler) {
+                            delete this.events[type];
+                        } else {
+                            var index = this.events[type].indexOf(handler)
+                            this.events[type].splice(index, 1)
+                        }
+                    }
+                }
+            }
+
+
+            const ev = new eventAi4code();
+            ev.on('click:btn', data => {
+                console.log(data)
+            })
+
+            ev.fire('click:btn', {a: 1, b: 2})
+            ev.remove('click:btn')
+    </script>
+</html>
