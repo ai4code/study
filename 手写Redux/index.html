@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+           <meta charset="utf-8">  
+	</head>
+	<body> 
+    	<div>
+           手写Redux控制台输出
+        </div>  	 
+    </body> 
+    <script>
+         function createStore(reducer) {
+             var state;
+             var handlers = [];
+
+             return {
+                 getState() {
+                    return state;
+                 },
+                 dispatch(action){
+                    state = reducer(state, action)
+                    handlers && handlers.forEach(fn => fn());
+                 },
+                 subscribe(handler) {
+                    handlers.push(handler)
+                 }
+             }
+         }
+
+         function counter(state = 10, action) {
+             switch (action.type) {
+                 case '+':
+                        return  state + action.val
+                     ;break;
+                     case '-':
+                     return  state - action.val
+                     ;break;    
+                 default:
+                     return state;
+             }
+         }
+
+         var store = createStore(counter);
+         store.subscribe(() => console.log(store.getState()))
+         store.dispatch({type: '+', val: 90});
+         store.dispatch({type: '-', val: 90})
+    </script>
+</html>
